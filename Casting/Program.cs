@@ -15,6 +15,14 @@ namespace ConsoleApplication
             myDouble = myInt; // implicit casting
 
             Console.WriteLine("explicit: {0}, implicit: {1}", myInt, myDouble);
+
+
+            // user defined casting    
+            int age = 22;
+            Person p2 = (Person) age;
+
+            Console.WriteLine("Person’s name: {0}, Person’s age: {1}", p2.Name, p2.Age);
+
         }
     }
 }

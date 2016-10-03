@@ -27,7 +27,7 @@ namespace ConsoleApplication
         }
     }
 
-    // a basic video
+    // a basic 'video'
     public class Video
     {
         public String Title { get; set; }

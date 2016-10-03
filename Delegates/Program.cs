@@ -3,7 +3,8 @@
 namespace ConsoleApplication
 {
 
-	// A delegate is a representative for a different method that you are able to pass as a parameter.  
+	// Delegates
+	// https://msdn.microsoft.com/en-us/library/ms173171.aspx  
 	
 	public class Program
 	{

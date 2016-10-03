@@ -9,6 +9,7 @@ class Vector
         _y = y;
     }
 
+    // define the operator '+' to be overloaded
     public static Vector operator +(Vector l, Vector r)
     {
         return new Vector( (l._x + r._x), (l._y + r._y) );

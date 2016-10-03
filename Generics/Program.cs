@@ -2,11 +2,12 @@
 
 namespace ConsoleApplication
 {
+
+    // Generics
+    // https://msdn.microsoft.com/nl-nl/library/512aeb7t.aspx
+
     public class Program
     {
-
-        // Generics allow you to define type-safe data structures, without committing to actual data types.
-
         public static void Main(string[] args)
         {
             // array's

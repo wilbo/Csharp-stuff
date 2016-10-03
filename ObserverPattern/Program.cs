@@ -2,14 +2,18 @@
 
 namespace ConsoleApplication
 {
+
+    // Observer Design Pattern
+    // https://msdn.microsoft.com/en-us/library/ee850490(v=vs.110).aspx
+
     public class Program
     {
         public static void Main(string[] args)
         {            
             Model model = new Model();
 
-            ViewGetal vg = new ViewGetal(model);
-            ViewStreepjes vt = new ViewStreepjes(model);
+            ViewNumber vg = new ViewNumber(model);
+            ViewPipes vt = new ViewPipes(model);
 
             model.IncreaseModel(5);
             model.DecreaseModel(3);
@@ -20,18 +24,18 @@ namespace ConsoleApplication
 
     public class Model
     {
-        public int Getal { get; set; }
+        public int Number { get; set; }
         private event Observer Obs;
 
         public void IncreaseModel(int i)
         {
-            Getal = Getal + i;
+            Number = Number + i;
             Obs(this);
         }
 
         public void DecreaseModel(int i)
         {
-            Getal = Getal - i;
+            Number = Number - i;
             Obs(this);
         }
 
@@ -42,30 +46,30 @@ namespace ConsoleApplication
 
 
 
-    public class ViewGetal
+    public class ViewNumber
     {
-        public ViewGetal(Model m)
+        public ViewNumber(Model m)
         { 
             m.addObs(ShowData);
         }
 
         public void ShowData(Model model)
         {
-            Console.WriteLine(model.Getal);
+            Console.WriteLine(model.Number);
         }
     }
 
 
-    public class ViewStreepjes
+    public class ViewPipes
     {
-        public ViewStreepjes(Model m)
+        public ViewPipes(Model m)
         {
             m.addObs(ShowData);
         }
 
         public void ShowData(Model model)
         {
-            for (int i = 0; i < model.Getal; i++)
+            for (int i = 0; i < model.Number; i++)
                 Console.Write("|");
 
             Console.WriteLine();  

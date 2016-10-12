@@ -4,7 +4,11 @@ using System.Threading;
 namespace ConsoleApplication
 {
 
-    // This program simulates the encoding of a video. Multiple messages are sent when de video is done encoding.
+    // Events
+    // https://msdn.microsoft.com/en-us/library/8627sbea(v=vs.71).aspx
+
+    // This program simulates the encoding of a video. Multiple messages
+    // are sent when de video is done encoding.
 
     public class Program
     {
@@ -34,6 +38,8 @@ namespace ConsoleApplication
         public Video(String t) { this.Title = t; }
     }
 
+    // adding to EventArgs
+    // https://msdn.microsoft.com/en-us/library/system.eventargs(v=vs.110).aspx
     public class VideoEventArgs : EventArgs
     {
         public Video Video { get; set; }

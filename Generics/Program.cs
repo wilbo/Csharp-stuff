@@ -10,45 +10,67 @@ namespace ConsoleApplication
     {
         public static void Main(string[] args)
         {
-            // array's
+            // printing array's
             char[] charArray = new char[] { 'a', 'b', 'c', 'd' };
-            double[] doubleArray = new double[] {12.22, 43.54, 34.32, 34.78};           
-
+            double[] doubleArray = new double[] {12.22, 43.54, 34.32, 34.78};    
+       
             PrintArray(charArray);
             PrintArray(doubleArray);
 
-            // int's swap
-            int a = 1;
-            int b = 2;
+            // swapping 
+            int a = 1, b = 2;
+            char c = 'a', d = 'b';
 
             Swap(ref a, ref b);
+            Swap(ref c, ref d);
+
             Console.WriteLine(a + ", " + b);
+            Console.WriteLine(c + ", " + d);
         }
 
         // generic, using "T" for type
         public static void PrintArray <T> (T[] inputArray)
         {
-            foreach (T element in inputArray) {
-                Console.WriteLine(element + " ");
-            }
+            foreach (T element in inputArray) 
+                Console.Write(element + ", ");
+
+            Console.WriteLine();    
         }
 
         // swap, generic, again using "T" for type
-        static void Swap<T>(ref T a, ref T b)
+        public static void Swap<T>(ref T y, ref T z)
         {
-            T temp = a;
-            a = b;
-            b = temp;
+            T temp = y;
+            y = z;
+            z = temp;
         }
+
+        // This example uses a constraint: 'where T : IComparable<T>'
+        // to check if te given parameter values are comparable
+        // https://msdn.microsoft.com/nl-nl/library/bb384067.aspx 
+        public static T Maximum<T> (T first, T second, T third) 
+            where T : IComparable<T>
+        {
+            T max = first;
+            if (second.CompareTo(first) > 0)
+                max = second;
+            if (third.CompareTo(max) > 0)
+                max = third;
+
+            return max;
+        }
+
     }
 
     // a class with a generic type (Example)
-    class MyCollection<T> {
+    class MyCollection<T> 
+    {
 
         private T[] array = new T[10];
         private int cursor = 0;
 
-        public void Add(T n) {
+        public void Add(T n) 
+        {
             if (cursor < 10)
                 array[cursor++] = n;
         }
